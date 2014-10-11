@@ -13,14 +13,14 @@ studyData <- data[which(data$Date=="1/2/2007" | data$Date == "2/2/2007"), ]
 studyData$timestamp <- strptime(paste(studyData$Date, studyData$Time), format = "%d/%m/%Y %H:%M:%S")
 ## Create plot with display options - set to a 2x2, add charts
 par(mfcol = c(2,2))
-plot(studyData$timestamp, studyData$Global_active_power, type="l", ylab="Global Active Power (kilowatts)",
+plot(studyData$timestamp, studyData$Global_active_power, type="l", ylab="Global Active Power",
      col="black", fg="black", xlab="")
-plot(studyData$timestamp, studyData$Sub_metering_1, type="l", fg="black", col="black", ylab="Energy Sub Metering", xlab = "")
+plot(studyData$timestamp, studyData$Sub_metering_1, type="l", fg="black", col="black", ylab="Energy sub metering", xlab = "")
 lines(studyData$timestamp, studyData$Sub_metering_2, col="red")
 lines(studyData$timestamp, studyData$Sub_metering_3, col="blue")
 legend("topright", c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), text.col = "black", col = c("black", "red", "blue"),
          lty= 1)
-plot(studyData$timestamp, studyData$Voltage, type="l", ylab="Voltage", xlab="timestamp", col="black", fg="black")
-plot(studyData$timestamp, studyData$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="timestamp", col="black", fg="black")
+plot(studyData$timestamp, studyData$Voltage, type="l", ylab="Voltage", xlab="datetime", col="black", fg="black")
+plot(studyData$timestamp, studyData$Global_reactive_power, type="l", ylab="Global_reactive_power", xlab="datetime", col="black", fg="black")
 ## Turn off graphics device to finish writing and closing the file
 dev.off()
